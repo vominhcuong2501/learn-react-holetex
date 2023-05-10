@@ -2,6 +2,7 @@ import CreateRef from "./class-component/CreateRef";
 import Form from "./class-component/Form";
 import LiftingStateUp from "./class-component/Lifting-state-up";
 import RenderCondition from "./class-component/Render-condition";
+import CustomeHook from "./hooks/CustomeHook";
 import Memo from "./function-component/Memo";
 import UseCallback from "./function-component/UseCallback";
 import UseEffect from "./function-component/UseEffect";
@@ -23,7 +24,8 @@ function App() {
       {/* <UseCallback /> */}
       {/* <Memo /> */}
       {/* <UseRef /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
+      <CustomeHook />
     </div>
   );
 }
