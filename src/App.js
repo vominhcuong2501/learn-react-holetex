@@ -1,15 +1,18 @@
-import CreateRef from "./class-component/CreateRef";
-import Form from "./class-component/Form";
-import LiftingStateUp from "./class-component/Lifting-state-up";
-import RenderCondition from "./class-component/Render-condition";
-import CustomeHook from "./hooks/CustomeHook";
-import Memo from "./function-component/Memo";
-import UseCallback from "./function-component/UseCallback";
-import UseEffect from "./function-component/UseEffect";
-import UseMemo from "./function-component/UseMemo";
-import UseRef from "./function-component/UseRef";
-import UseState from "./function-component/UseState";
-import UseReducer from "./function-component/useReducer";
+// import CreateRef from "./class-component/CreateRef";
+// import Form from "./class-component/Form";
+// import LiftingStateUp from "./class-component/Lifting-state-up";
+// import RenderCondition from "./class-component/Render-condition";
+// import CustomeHook from "./hooks/CustomeHook";
+// import Memo from "./function-component/Memo";
+// import UseCallback from "./function-component/UseCallback";
+// import UseEffect from "./function-component/UseEffect";
+// import UseMemo from "./function-component/UseMemo";
+// import UseRef from "./function-component/UseRef";
+// import UseState from "./function-component/UseState";
+// import UseReducer from "./function-component/useReducer";
+
+import UseId from "./function-component/version18/useId/UseId";
+import UseTransition from "./function-component/version18/useTransition/UseTransition";
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
       {/* <Memo /> */}
       {/* <UseRef /> */}
       {/* <UseReducer /> */}
-      <CustomeHook />
+      {/* <CustomeHook /> */}
+      {/* <UseId /> */}
+      <UseTransition />
     </div>
   );
 }
