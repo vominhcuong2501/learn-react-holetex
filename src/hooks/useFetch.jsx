@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useDebugValue, useEffect, useState } from 'react'
 import { useCustom } from './useCustom'
 
 const fetchCustom = (state, action) => {
@@ -20,6 +20,10 @@ export const useFetch = (url) => {
         error: null,
 
     })
+
+    // dùng để hiển thị label cùa 1 custom hook nào đó khi minh check ở component devtool
+    useDebugValue(state.isLoading ? "loading" : "Loaded")
+
     useEffect(() => {
         (async () => {
             dispatch({

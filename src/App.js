@@ -10,9 +10,9 @@
 // import UseRef from "./function-component/UseRef";
 // import UseState from "./function-component/UseState";
 // import UseReducer from "./function-component/useReducer";
-
-import UseId from "./function-component/version18/useId/UseId";
-import UseTransition from "./function-component/version18/useTransition/UseTransition";
+// import UseId from "./function-component/version18/useId/UseId";
+// import UseTransition from "./function-component/version18/useTransition/UseTransition";
+import Parent from "./maybe-you-do-not-know/useImperativeHandle/Parent";
 
 function App() {
   return (
@@ -30,7 +30,8 @@ function App() {
       {/* <UseReducer /> */}
       {/* <CustomeHook /> */}
       {/* <UseId /> */}
-      <UseTransition />
+      {/* <UseTransition /> */}
+      <Parent />
     </div>
   );
 }
