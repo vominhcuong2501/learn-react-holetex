@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Be Vietnam Pro", sans-serif;
+      }
+      #affiliate-policy h1,
+      #affiliate-policy h2,
+      #affiliate-policy h3,
+      #affiliate-policy h4,
+      #affiliate-policy h5,
+      #affiliate-policy h6,
+      #affiliate-policy p {
+        margin: 0;
+      }
+
+      #affiliate-policy h2 {
+        opacity: 0;
+        height: 20px;
+      }
+      #affiliate-policy {
+        max-width: 960px;
+        margin: 0 auto;
+        background-image: url("https://www.meliwa.com/wp-content/uploads/2023/05/Meliwa-tiep-thi-lien-ket.png");
+        background-size: 100%;
+      }
+      #affiliate-policy .banner {
+        background-color: #ff3100 !important;
+      }
+      #affiliate-policy .menu {
+        background-color: #fff5d7;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        text-align: center;
+        gap: 20px;
+      }
+      #affiliate-policy .menu a {
+        color: #242424;
+        font-size: 16px;
+        line-height: 150%;
+        font-family: 500;
+        text-decoration: none;
+      }
+      #affiliate-policy .menu a p {
+        transition: all 0.3s;
+      }
+      #affiliate-policy .menu a:hover p {
+        color: #ff6700;
+      }
+      #affiliate-policy .sale-partner,
+      #affiliate-policy .return-partner,
+      #affiliate-policy .who-partner,
+      #affiliate-policy .benefit-partner,
+      #affiliate-policy .why-join,
+      #affiliate-policy .btn-register,
+      #affiliate-policy .answers {
+        text-align: center;
+        position: relative;
+        padding: 20px 10px 40px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      #affiliate-policy .why-join .swiper {
+        position: absolute;
+        max-width: 700px;
+        top: calc(55% - 200px);
+        left: calc(50% - 350px);
+        min-height: 500px;
+      }
+      #affiliate-policy .why-join .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        flex-direction: column;
+      }
+      #affiliate-policy .why-join .swiper-slide p {
+        color: #ffffff;
+        font-size: 40px;
+        line-height: 150%;
+        margin-top: 12px;
+      }
+
+      #affiliate-policy .why-join .swiper-slide img {
+        text-align: center;
+      }
+      #affiliate-policy .swiper-pagination {
+        bottom: 0;
+      }
+      #affiliate-policy .swiper-pagination-bullet {
+        background: #ffffff;
+        opacity: 1;
+      }
+      #affiliate-policy .swiper-pagination-bullet-active {
+        background: #ff6700 !important;
+      }
+      #affiliate-policy .swiper-button-next:after,
+      #affiliate-policy .swiper-button-prev:after {
+        font-size: 48px !important;
+        font-weight: bold;
+        color: #cccccc;
+      }
+      #affiliate-policy .swiper-button-next {
+        right: 0 !important;
+      }
+      #affiliate-policy .swiper-button-prev {
+        left: 0 !important;
+      }
+      #affiliate-policy .answer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: calc(50% - 127.5px);
+        left: 50px;
+        right: 50px;
+      }
+      #affiliate-policy .answer-content .swiper {
+        max-width: 600px;
+        min-height: 300px;
+        margin: 0;
+      }
+
+      #affiliate-policy .answer-content .swiper-slide h3 {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 150%;
+        font-weight: 900;
+        text-align: left;
+        padding: 40px 40px 0;
+      }
+      #affiliate-policy .answer-content .swiper-slide p {
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 150%;
+        margin-top: 12px;
+        text-align: left;
+        padding: 0 40px;
+      }
+      @media only screen and (max-width: 960px) {
+        #affiliate-policy img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        #affiliate-policy .video iframe {
+          width: 100%;
+          height: 432px;
+        }
+        #affiliate-policy .menu a img {
+          width: 70px !important;
+          height: 70px !important;
+        }
+        #affiliate-policy .why-join .swiper {
+          max-width: 400px;
+          top: calc(50% - 124.5px);
+          left: calc(50% - 225px);
+          min-height: 350px;
+        }
+        #affiliate-policy .why-join .swiper-slide .procedure {
+          height: 200px !important;
+          width: 264px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .promotion-support {
+          height: 200px !important;
+          width: 140px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .reputation-guaranteed {
+          height: 200px !important;
+          width: 207px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide p {
+          font-size: 24px;
+        }
+        #affiliate-policy .why-join .swiper-pagination {
+          bottom: 0;
+        }
+
+        #affiliate-policy .answer-content .swiper {
+          max-width: 500px;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        #affiliate-policy .menu {
+          gap: 10px;
+          padding: 20px 0;
+        }
+        #affiliate-policy .menu a {
+          font-size: 12px;
+        }
+        #affiliate-policy .menu a img {
+          width: 40px !important;
+          height: 40px !important;
+        }
+        #affiliate-policy .video iframe {
+          height: 350px;
+        }
+        #affiliate-policy .sale-partner,
+        #affiliate-policy .return-partner,
+        #affiliate-policy .who-partner,
+        #affiliate-policy .benefit-partner,
+        #affiliate-policy .why-join,
+        #affiliate-policy .btn-register,
+        #affiliate-policy .answers {
+          padding: 0 10px 20px;
+        }
+        #affiliate-policy .swiper-button-next:after,
+        #affiliate-policy .swiper-button-prev:after {
+          font-size: 24px !important;
+        }
+        #affiliate-policy .answer-content .swiper {
+          max-width: 400px;
+          min-height: 250px;
+        }
+        #affiliate-policy .answer-content .swiper-slide h3 {
+          font-size: 16px;
+        }
+        #affiliate-policy .answer-content .swiper-slide p {
+          font-size: 12px;
+        }
+        #affiliate-policy .answer-content img {
+          height: 150px !important;
+          width: 127px !important;
+        }
+        .swiper-button-next,
+        .swiper-container-rtl .swiper-button-prev,
+        .swiper-button-prev,
+        .swiper-container-rtl .swiper-button-next {
+          background-image: unset !important;
+        }
+      }
+      @media only screen and (max-width: 576px) {
+        #affiliate-policy .video iframe {
+          height: 250px;
+        }
+        #affiliate-policy .why-join .swiper {
+          max-width: 300px;
+          top: calc(63% - 110px);
+          left: calc(50% - 150px);
+          min-height: 205px;
+        }
+        #affiliate-policy .why-join .swiper-slide .procedure {
+          height: 130px !important;
+          width: 172px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .promotion-support {
+          height: 130px !important;
+          width: 91px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .reputation-guaranteed {
+          height: 130px !important;
+          width: 135px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide p {
+          font-size: 16px;
+        }
+        #affiliate-policy .why-join .swiper-pagination {
+          bottom: 0;
+        }
+        #affiliate-policy .answer-content {
+          top: calc(50% - 55px);
+          left: 20px;
+          right: 20px;
+        }
+        #affiliate-policy .answer-content .swiper {
+          max-width: 300px;
+          min-height: 145px;
+        }
+        #affiliate-policy .answer-content .swiper-slide h3 {
+          font-size: 10px;
+          padding: 0 30px;
+        }
+        #affiliate-policy .answer-content .swiper-slide p {
+          font-size: 8px;
+          padding: 0 30px;
+          margin: 0;
+        }
+        #affiliate-policy .answer-content img {
+          height: 80px !important;
+          width: 68px !important;
+        }
+        #affiliate-policy .answer-content .swiper-button-next:after,
+        #affiliate-policy .answer-content .swiper-button-prev:after {
+          font-size: 16px !important;
+        }
+        .swiper-button-next,
+        .swiper-container-rtl .swiper-button-prev,
+        .swiper-button-prev,
+        .swiper-container-rtl .swiper-button-next {
+          background-image: unset !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="affiliate-policy">
+      <div class="banner">
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/hinh-nen-chinh-sach-doi-tac-meliwa.png"
+          alt="Đối tác bán hàng Meliwa"
+          title="Đối tác bán hàng Meliwa"
+          width="955"
+          height="447"
+          loading="lazy"
+        />
+      </div>
+      <div class="menu">
+        <div class="menu-item">
+          <a href="#tong-quan" title="Tổng quan" class="scroll-link">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/tong-quan.png"
+              alt="Tổng quan"
+              title="Tổng quan"
+              width="125"
+              height="125"
+              loading="lazy"
+            />
+            <p>Tổng quan</p>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="#cach-thuc" title="Cách thức" class="scroll-link">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/cach-thuc.png"
+              alt="Cách thức"
+              title="Cách thức"
+              width="125"
+              height="125"
+              loading="lazy"
+            />
+            <p>Cách thức</p>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="#doi-tuong" title="Đối tượng" class="scroll-link">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tuong.png"
+              alt="Đối tượng"
+              title="Đối tượng"
+              width="125"
+              height="125"
+              loading="lazy"
+            />
+            <p>Đối tượng</p>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="#hoa-hong" title="Hoa Hồng" class="scroll-link">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/hoa-hong.png"
+              alt="Hoa Hồng"
+              title="Hoa Hồng"
+              width="125"
+              height="125"
+              loading="lazy"
+            />
+            <p>Hoa Hồng</p>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="#giai-dap" title="Giải đáp" class="scroll-link">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/giai-dap.png"
+              alt="Giải đáp"
+              title="Giải đáp"
+              width="125"
+              height="125"
+              loading="lazy"
+            />
+            <p>Giải đáp</p>
+          </a>
+        </div>
+      </div>
+      <div class="sale-partner" id="tong-quan">
+        <h2>Đối tác bán hàng của Meliwa là gì</h2>
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-la-gi.png"
+          alt="Đối tác bán hàng của Meliwa là gì"
+          title="Đối tác bán hàng của Meliwa là gì"
+          width="940"
+          height="558"
+          loading="lazy"
+        />
+      </div>
+      <div class="video">
+        <iframe
+          width="960"
+          height="540"
+          src="https://www.youtube.com/embed/Q1-MkovHVP0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="return-partner" id="cach-thuc">
+        <h2>Các bước trở thành đối tác của Meliwa</h2>
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-meliwa.png"
+          alt="Các bước trở thành đối tác của Meliwa"
+          title="Các bước trở thành đối tác của Meliwa"
+          width="950"
+          height="776"
+          loading="lazy"
+        />
+      </div>
+      <div class="who-partner" id="doi-tuong">
+        <h2>Ai có thể là đối tác bán hàng</h2>
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/ai-co-the-la-doi-tac-cua-meliwa.png"
+          alt="Ai có thể là đối tác bán hàng"
+          title="Ai có thể là đối tác bán hàng"
+          width="950"
+          height="1295"
+          loading="lazy"
+        />
+      </div>
+      <div class="benefit-partner" id="hoa-hong">
+        <h2>Hoa hồng và quyền lợi</h2>
+
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/hoa-hong-va-quyen-loi.png"
+          alt="Hoa hồng và quyền lợi"
+          title="Hoa hồng và quyền lợi"
+          width="950"
+          height="937"
+          loading="lazy"
+        />
+      </div>
+      <div class="why-join">
+        <h2>Tại sao nên tham gia</h2>
+
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/tai-sao-nen-tham-gia.png"
+          alt="Tại sao nên tham gia"
+          title="Tại sao nên tham gia"
+          width="940"
+          height="826"
+          loading="lazy"
+        />
+        <div class="swiper whyJoin">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/quy-trinh-don-gian.png"
+                alt="Quy trình đơn giản không tốn chi phí"
+                title="Quy trình đơn giản không tốn chi phí"
+                width="400"
+                height="303"
+                loading="lazy"
+                class="procedure"
+              />
+              <p>
+                Quy trình đơn giản <br />
+                KHÔNG tốn chi phí
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/chuong-trinh-khuyen-mai-ho-tro-tu-meliwa.png"
+                alt="Các chương trình khuyến mãi hỗ trợ từ Meliwa"
+                title="Các chương trình khuyến mãi hỗ trợ từ Meliwa"
+                width="212"
+                height="303"
+                loading="lazy"
+                class="promotion-support"
+              />
+              <p>
+                Các chương trình khuyến mãi<br />
+                hỗ trợ từ Meliwa
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/hang-chinh-hang-tu-singapore.png"
+                alt="Hàng chính hãng từ Singapore đảm bảo uy tín cho đối tác"
+                title="Hàng chính hãng từ Singapore đảm bảo uy tín cho đối tác"
+                width="314"
+                height="303"
+                loading="lazy"
+                class="reputation-guaranteed"
+              />
+              <p>
+                Hàng chính hãng từ Singapore <br />
+                đảm bảo uy tín cho đối tác
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/ro-rang-minh-bach.png"
+                alt="Rõ ràng minh bạch"
+                title="Rõ ràng minh bạch"
+                width="400"
+                height="303"
+                loading="lazy"
+                class="cleared"
+              />
+              <p>Rõ ràng minh bạch</p>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="btn-register">
+        <h2>Đăng ký ngay</h2>
+
+        <a
+          href="https://www.meliwa.vn/dang-ky-cong-tac-vien-ban-hang/"
+          target="_self"
+          title="Đăng ký ngay"
+        >
+          <img
+            src="https://www.meliwa.com/wp-content/uploads/2023/05/dang-ky-ngay.png"
+            alt="Đăng ký ngay"
+            title="Đăng ký ngay"
+            width="500"
+            height="105"
+            loading="lazy"
+          />
+        </a>
+      </div>
+      <div class="answers" id="giai-dap">
+        <h2>Giải đáp thắc mắc chung</h2>
+
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/giai-dap-thac-mac.png"
+          alt="Giải đáp thắc mắc chung"
+          title="Giải đáp thắc mắc chung"
+          width="940"
+          height="543"
+          loading="lazy"
+          class="img-answer"
+        />
+        <div class="answer-content">
+          <div class="swiper whyJoin">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <h3>
+                  Tôi là đại lý có cửa hàng, tôi có được tham gia chương trình
+                  này không?
+                </h3>
+                <p>
+                  Chương trình Affiliate áp dụng cho tất cả đối tác đủ điều kiện
+                  lao động. Trường hợp đại lý muốn tham gia, đại lý sẽ sử dụng
+                  tài khoản (link) của mình để tự đặt hàng, Meliwa sẽ là bên
+                  giao hàng, hoa hồng sẽ được tính vào cuối tháng như thỏa
+                  thuận.
+                </p>
+              </div>
+              <div class="swiper-slide">
+                <h3>
+                  Tại sao khách hàng của tôi dùng link tiếp thị của tôi để mua
+                  hàng nhưng không được ghi nhận doanh số?
+                </h3>
+                <p>
+                  Theo nguyên tắc: hoa hồng luôn được hệ thống chuyển cho chỉ
+                  một cộng tác viên duy nhất. Điều này có nghĩa là, nếu khách
+                  hàng truy cập từ nhiều link liên kết trước khi quyết định mua
+                  hàng, thì hoa hồng sẽ được tính cho cộng tác viên cuối cùng mà
+                  khách hàng sử dụng đường link đó để mua hàng.
+                </p>
+              </div>
+              <div class="swiper-slide">
+                <h3>
+                  Nếu như khách hàng hoàn hàng, thì tôi có được tính doanh số
+                  không?
+                </h3>
+                <p>
+                  Không. Đơn hàng được ghi nhận doanh thu là đơn hàng đã được
+                  giao hành thành công và không có phát sinh sự cố hoàn hàng.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="answer-img">
+            <img
+              src="https://www.meliwa.com/wp-content/uploads/2023/05/hinh-giai-dap-thac-mac.png"
+              alt="Giải đáp thắc mắc chung"
+              title="Giải đáp thắc mắc chung"
+              width="212"
+              height="250"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".whyJoin", {
+        cssMode: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+      });
+
+      var scrollLinks = document.querySelectorAll(".scroll-link");
+      let widthScreen = document.documentElement.clientWidth;
+      scrollLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          var targetId = this.getAttribute("href");
+          var targetElement = document.querySelector(targetId);
+          let offset = -200;
+          if (widthScreen > 960) {
+            offset = -330;
+          }
+          window.scrollTo({
+            top: targetElement.offsetTop - offset,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
