@@ -12,7 +12,8 @@
 // import UseReducer from "./function-component/useReducer";
 // import UseId from "./function-component/version18/useId/UseId";
 // import UseTransition from "./function-component/version18/useTransition/UseTransition";
-import Parent from "./maybe-you-do-not-know/useImperativeHandle/Parent";
+import UseContext from "./function-component/contextAPI/UseContext";
+// import Parent from "./maybe-you-do-not-know/useImperativeHandle/Parent";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
       {/* <CustomeHook /> */}
       {/* <UseId /> */}
       {/* <UseTransition /> */}
-      <Parent />
+      {/* <Parent /> */}
+      <UseContext />
     </div>
   );
 }
