@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="./affiliate.css" />
     <style>
       body {
         margin: 0;
@@ -27,19 +28,13 @@
       #affiliate-policy p {
         margin: 0;
       }
-
-      #affiliate-policy h2 {
-        opacity: 0;
-        height: 20px;
-      }
       #affiliate-policy {
         max-width: 960px;
-        margin: 0 auto;
-        background-image: url("https://www.meliwa.com/wp-content/uploads/2023/05/Meliwa-tiep-thi-lien-ket.png");
-        background-size: 100%;
+        margin: -40px auto;
       }
       #affiliate-policy .banner {
         background-color: #ff3100 !important;
+        text-align: center;
       }
       #affiliate-policy .menu {
         background-color: #fff5d7;
@@ -62,6 +57,9 @@
       #affiliate-policy .menu a:hover p {
         color: #ff6700;
       }
+      #affiliate-policy .video {
+        margin: -10px auto 0;
+      }
       #affiliate-policy .sale-partner,
       #affiliate-policy .return-partner,
       #affiliate-policy .who-partner,
@@ -71,11 +69,15 @@
       #affiliate-policy .answers {
         text-align: center;
         position: relative;
-        padding: 20px 10px 40px;
         overflow: hidden;
-        margin: 0 auto;
+        margin: -10px auto 0;
       }
-
+      #affiliate-policy .why-join {
+        margin: -6px auto 0;
+      }
+      #affiliate-policy .btn-register {
+        margin: -17px auto 0;
+      }
       #affiliate-policy .why-join .swiper {
         position: absolute;
         max-width: 700px;
@@ -126,51 +128,58 @@
         left: 0 !important;
       }
       #affiliate-policy .answer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
         position: absolute;
-        top: calc(50% - 127.5px);
-        left: 50px;
-        right: 50px;
+        top: 50%;
+        left: 70px;
+        transform: translateY(-50%);
       }
       #affiliate-policy .answer-content .swiper {
-        max-width: 600px;
-        min-height: 300px;
+        max-width: 500px;
         margin: 0;
+        overflow: unset;
       }
 
       #affiliate-policy .answer-content .swiper-slide h3 {
         color: #ffffff;
         font-size: 20px;
-        line-height: 150%;
+        line-height: 130%;
         font-weight: 900;
         text-align: left;
-        padding: 40px 40px 0;
+        padding: 0 40px;
       }
       #affiliate-policy .answer-content .swiper-slide p {
         color: #ffffff;
         font-size: 16px;
-        line-height: 150%;
+        line-height: 130%;
         margin-top: 12px;
         text-align: left;
         padding: 0 40px;
       }
+      #affiliate-policy .answer-content .swiper-pagination {
+        bottom: -50px;
+      }
+      #affiliate-policy .swiper-button-next,
+      #affiliate-policy .swiper-container-rtl .swiper-button-prev,
+      #affiliate-policy .swiper-button-prev,
+      #affiliate-policy .swiper-container-rtl .swiper-button-next {
+        background-image: unset !important;
+      }
+      #affiliate-policy .answer-content .swiper-wrapper {
+        align-items: center;
+      }
       @media only screen and (max-width: 960px) {
+        #affiliate-policy {
+          margin: -40px -5px;
+        }
         #affiliate-policy img {
           width: 100% !important;
           height: 100% !important;
-        }
-
-        #affiliate-policy .video iframe {
-          width: 100%;
-          height: 432px;
         }
         #affiliate-policy .menu a img {
           width: 70px !important;
           height: 70px !important;
         }
+
         #affiliate-policy .why-join .swiper {
           max-width: 400px;
           top: calc(50% - 124.5px);
@@ -187,7 +196,11 @@
         }
         #affiliate-policy .why-join .swiper-slide .reputation-guaranteed {
           height: 200px !important;
-          width: 207px !important;
+          width: 196px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .cleared {
+          height: 200px !important;
+          width: 249px !important;
         }
         #affiliate-policy .why-join .swiper-slide p {
           font-size: 24px;
@@ -197,13 +210,19 @@
         }
 
         #affiliate-policy .answer-content .swiper {
-          max-width: 500px;
+          max-width: 400px;
+        }
+        #affiliate-policy .answer-content .swiper-slide h3 {
+          font-size: 18px;
+        }
+        #affiliate-policy .answer-content .swiper-slide p {
+          font-size: 14px;
         }
       }
       @media only screen and (max-width: 768px) {
         #affiliate-policy .menu {
-          gap: 10px;
-          padding: 20px 0;
+          gap: 0;
+          padding: 20px 5px;
         }
         #affiliate-policy .menu a {
           font-size: 12px;
@@ -212,52 +231,30 @@
           width: 40px !important;
           height: 40px !important;
         }
-        #affiliate-policy .video iframe {
-          height: 350px;
-        }
-        #affiliate-policy .sale-partner,
-        #affiliate-policy .return-partner,
-        #affiliate-policy .who-partner,
-        #affiliate-policy .benefit-partner,
-        #affiliate-policy .why-join,
-        #affiliate-policy .btn-register,
-        #affiliate-policy .answers {
-          padding: 0 10px 20px;
-        }
+
         #affiliate-policy .swiper-button-next:after,
         #affiliate-policy .swiper-button-prev:after {
           font-size: 24px !important;
         }
         #affiliate-policy .answer-content .swiper {
-          max-width: 400px;
-          min-height: 250px;
+          max-width: 350px;
         }
         #affiliate-policy .answer-content .swiper-slide h3 {
-          font-size: 16px;
+          font-size: 14px;
         }
         #affiliate-policy .answer-content .swiper-slide p {
-          font-size: 12px;
+          font-size: 10px;
         }
-        #affiliate-policy .answer-content img {
-          height: 150px !important;
-          width: 127px !important;
-        }
-        .swiper-button-next,
-        .swiper-container-rtl .swiper-button-prev,
-        .swiper-button-prev,
-        .swiper-container-rtl .swiper-button-next {
-          background-image: unset !important;
+        #affiliate-policy .answer-content {
+          left: 50px;
         }
       }
       @media only screen and (max-width: 576px) {
-        #affiliate-policy .video iframe {
-          height: 250px;
-        }
         #affiliate-policy .why-join .swiper {
           max-width: 300px;
-          top: calc(63% - 110px);
+          top: calc(65% - 110px);
           left: calc(50% - 150px);
-          min-height: 205px;
+          min-height: 195px;
         }
         #affiliate-policy .why-join .swiper-slide .procedure {
           height: 130px !important;
@@ -269,22 +266,25 @@
         }
         #affiliate-policy .why-join .swiper-slide .reputation-guaranteed {
           height: 130px !important;
-          width: 135px !important;
+          width: 127px !important;
+        }
+        #affiliate-policy .why-join .swiper-slide .cleared {
+          height: 130px !important;
+          width: 162px !important;
         }
         #affiliate-policy .why-join .swiper-slide p {
           font-size: 16px;
+          margin: 0;
         }
         #affiliate-policy .why-join .swiper-pagination {
           bottom: 0;
         }
         #affiliate-policy .answer-content {
-          top: calc(50% - 55px);
           left: 20px;
-          right: 20px;
         }
+
         #affiliate-policy .answer-content .swiper {
           max-width: 300px;
-          min-height: 145px;
         }
         #affiliate-policy .answer-content .swiper-slide h3 {
           font-size: 10px;
@@ -303,11 +303,19 @@
         #affiliate-policy .answer-content .swiper-button-prev:after {
           font-size: 16px !important;
         }
-        .swiper-button-next,
-        .swiper-container-rtl .swiper-button-prev,
-        .swiper-button-prev,
-        .swiper-container-rtl .swiper-button-next {
-          background-image: unset !important;
+      }
+      @media only screen and (max-width: 450px) {
+        #affiliate-policy .answer-content .swiper {
+          max-width: 230px;
+        }
+        #affiliate-policy .why-join {
+          margin: -7px auto 0;
+        }
+        #affiliate-policy .btn-register {
+          margin: -11px auto 0;
+        }
+        #affiliate-policy .answer-content .swiper-pagination {
+          bottom: -20px;
         }
       }
     </style>
@@ -392,70 +400,62 @@
         </div>
       </div>
       <div class="sale-partner" id="tong-quan">
-        <h2>Đối tác bán hàng của Meliwa là gì</h2>
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-la-gi.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-la-gi-1.png"
           alt="Đối tác bán hàng của Meliwa là gì"
           title="Đối tác bán hàng của Meliwa là gì"
-          width="940"
+          width="960"
           height="558"
           loading="lazy"
         />
       </div>
-      <div class="video">
-        <iframe
+      <div class="video" style="display: none">
+        <img
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/video.png"
+          alt="Video"
+          title="Video"
           width="960"
           height="540"
-          src="https://www.youtube.com/embed/Q1-MkovHVP0"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          loading="lazy"
+        />
       </div>
       <div class="return-partner" id="cach-thuc">
-        <h2>Các bước trở thành đối tác của Meliwa</h2>
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-meliwa.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/doi-tac-ban-hang-meliwa-1.png"
           alt="Các bước trở thành đối tác của Meliwa"
           title="Các bước trở thành đối tác của Meliwa"
-          width="950"
+          width="960"
           height="776"
           loading="lazy"
         />
       </div>
       <div class="who-partner" id="doi-tuong">
-        <h2>Ai có thể là đối tác bán hàng</h2>
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/ai-co-the-la-doi-tac-cua-meliwa.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/ai-co-the-la-doi-tac-cua-meliwa-1.png"
           alt="Ai có thể là đối tác bán hàng"
           title="Ai có thể là đối tác bán hàng"
-          width="950"
+          width="960"
           height="1295"
           loading="lazy"
         />
       </div>
       <div class="benefit-partner" id="hoa-hong">
-        <h2>Hoa hồng và quyền lợi</h2>
-
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/hoa-hong-va-quyen-loi.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/hoa-hong-va-quyen-loi-1.png"
           alt="Hoa hồng và quyền lợi"
           title="Hoa hồng và quyền lợi"
-          width="950"
+          width="960"
           height="937"
           loading="lazy"
         />
       </div>
       <div class="why-join">
-        <h2>Tại sao nên tham gia</h2>
-
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/tai-sao-nen-tham-gia.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/tai-sao-nen-tham-gia-3.png"
           alt="Tại sao nên tham gia"
           title="Tại sao nên tham gia"
-          width="940"
-          height="826"
+          width="960"
+          height="848"
           loading="lazy"
         />
         <div class="swiper whyJoin">
@@ -492,10 +492,10 @@
             </div>
             <div class="swiper-slide">
               <img
-                src="https://www.meliwa.com/wp-content/uploads/2023/05/hang-chinh-hang-tu-singapore.png"
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/hang-chinh-hang-tu-singapore-1.png"
                 alt="Hàng chính hãng từ Singapore đảm bảo uy tín cho đối tác"
                 title="Hàng chính hãng từ Singapore đảm bảo uy tín cho đối tác"
-                width="314"
+                width="296"
                 height="303"
                 loading="lazy"
                 class="reputation-guaranteed"
@@ -507,10 +507,10 @@
             </div>
             <div class="swiper-slide">
               <img
-                src="https://www.meliwa.com/wp-content/uploads/2023/05/ro-rang-minh-bach.png"
+                src="https://www.meliwa.com/wp-content/uploads/2023/05/ro-rang-minh-bach-2.png"
                 alt="Rõ ràng minh bạch"
                 title="Rõ ràng minh bạch"
-                width="400"
+                width="378"
                 height="303"
                 loading="lazy"
                 class="cleared"
@@ -524,32 +524,28 @@
         </div>
       </div>
       <div class="btn-register">
-        <h2>Đăng ký ngay</h2>
-
         <a
           href="https://www.meliwa.vn/dang-ky-cong-tac-vien-ban-hang/"
           target="_self"
           title="Đăng ký ngay"
         >
           <img
-            src="https://www.meliwa.com/wp-content/uploads/2023/05/dang-ky-ngay.png"
+            src="https://www.meliwa.com/wp-content/uploads/2023/05/dang-ky-ngay-1.png"
             alt="Đăng ký ngay"
             title="Đăng ký ngay"
-            width="500"
-            height="105"
+            width="960"
+            height="184"
             loading="lazy"
           />
         </a>
       </div>
       <div class="answers" id="giai-dap">
-        <h2>Giải đáp thắc mắc chung</h2>
-
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/giai-dap-thac-mac.png"
+          src="https://www.meliwa.com/wp-content/uploads/2023/05/giai-dap-thac-mac-1.png"
           alt="Giải đáp thắc mắc chung"
           title="Giải đáp thắc mắc chung"
-          width="940"
-          height="543"
+          width="960"
+          height="598"
           loading="lazy"
           class="img-answer"
         />
@@ -569,6 +565,17 @@
                   thuận.
                 </p>
               </div>
+
+              <div class="swiper-slide">
+                <h3>
+                  Nếu như khách hàng hoàn hàng, thì tôi có được tính doanh số
+                  không?
+                </h3>
+                <p>
+                  Không. Đơn hàng được ghi nhận doanh thu là đơn hàng đã được
+                  giao hành thành công và không có phát sinh sự cố hoàn hàng.
+                </p>
+              </div>
               <div class="swiper-slide">
                 <h3>
                   Tại sao khách hàng của tôi dùng link tiếp thị của tôi để mua
@@ -582,30 +589,10 @@
                   khách hàng sử dụng đường link đó để mua hàng.
                 </p>
               </div>
-              <div class="swiper-slide">
-                <h3>
-                  Nếu như khách hàng hoàn hàng, thì tôi có được tính doanh số
-                  không?
-                </h3>
-                <p>
-                  Không. Đơn hàng được ghi nhận doanh thu là đơn hàng đã được
-                  giao hành thành công và không có phát sinh sự cố hoàn hàng.
-                </p>
-              </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-          </div>
-          <div class="answer-img">
-            <img
-              src="https://www.meliwa.com/wp-content/uploads/2023/05/hinh-giai-dap-thac-mac.png"
-              alt="Giải đáp thắc mắc chung"
-              title="Giải đáp thắc mắc chung"
-              width="212"
-              height="250"
-              loading="lazy"
-            />
           </div>
         </div>
       </div>
@@ -635,9 +622,9 @@
           e.preventDefault();
           var targetId = this.getAttribute("href");
           var targetElement = document.querySelector(targetId);
-          let offset = -200;
+          var offset = -180;
           if (widthScreen > 960) {
-            offset = -330;
+            offset = -280;
           }
           window.scrollTo({
             top: targetElement.offsetTop - offset,
