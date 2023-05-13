@@ -58,7 +58,17 @@
         color: #ff6700;
       }
       #affiliate-policy .video {
-        margin: -10px auto 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      #affiliate-policy .video iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50px;
+        padding: 30px;
       }
       #affiliate-policy .sale-partner,
       #affiliate-policy .return-partner,
@@ -175,11 +185,15 @@
           width: 100% !important;
           height: 100% !important;
         }
+
+        #affiliate-policy .video iframe {
+          width: 100%;
+          height: 102%;
+        }
         #affiliate-policy .menu a img {
           width: 70px !important;
           height: 70px !important;
         }
-
         #affiliate-policy .why-join .swiper {
           max-width: 400px;
           top: calc(50% - 124.5px);
@@ -231,7 +245,9 @@
           width: 40px !important;
           height: 40px !important;
         }
-
+        #affiliate-policy .video iframe {
+          height: 103%;
+        }
         #affiliate-policy .swiper-button-next:after,
         #affiliate-policy .swiper-button-prev:after {
           font-size: 24px !important;
@@ -250,6 +266,9 @@
         }
       }
       @media only screen and (max-width: 576px) {
+        #affiliate-policy .video iframe {
+          height: 106%;
+        }
         #affiliate-policy .why-join .swiper {
           max-width: 300px;
           top: calc(65% - 110px);
@@ -312,10 +331,17 @@
           margin: -7px auto 0;
         }
         #affiliate-policy .btn-register {
-          margin: -11px auto 0;
+          margin: -10px auto 0;
         }
+
         #affiliate-policy .answer-content .swiper-pagination {
           bottom: -20px;
+        }
+      }
+      @media only screen and (max-width: 376px) {
+        #affiliate-policy .video iframe {
+          height: 109%;
+          width: 105%;
         }
       }
     </style>
@@ -409,15 +435,25 @@
           loading="lazy"
         />
       </div>
-      <div class="video" style="display: none">
+      <div class="video">
         <img
-          src="https://www.meliwa.com/wp-content/uploads/2023/05/video.png"
-          alt="Video"
-          title="Video"
+          src="https://www.meliwa.vn/wp-content/uploads/2023/05/hinh-nen-video.jpg"
+          alt="Cơ hội kinh doanh không cần vốn cùng Meliwa"
+          title="Cơ hội kinh doanh không cần vốn cùng Meliwa"
           width="960"
-          height="540"
+          height="558"
           loading="lazy"
         />
+
+        <iframe
+          width="890"
+          height="566"
+          src="https://www.youtube.com/embed/KZAWEy34Lws"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
       <div class="return-partner" id="cach-thuc">
         <img
@@ -501,7 +537,7 @@
                 class="reputation-guaranteed"
               />
               <p>
-                Hàng chính hãng từ Singapore <br />
+                Hàng chính hãng từ SINGAPORE <br />
                 đảm bảo uy tín cho đối tác
               </p>
             </div>
@@ -622,9 +658,9 @@
           e.preventDefault();
           var targetId = this.getAttribute("href");
           var targetElement = document.querySelector(targetId);
-          var offset = -180;
+          let offset = -180;
           if (widthScreen > 960) {
-            offset = -280;
+            offset = -300;
           }
           window.scrollTo({
             top: targetElement.offsetTop - offset,
