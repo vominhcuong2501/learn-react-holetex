@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./Context";
 
 export default function Content() {
+  const { isOpen, themeStyle } = useContext(AppContext);
+
   return (
     <div
       className="content"
       style={{
-        backgroundColor: "rgb(228,228,228)",
+        ...themeStyle,
         padding: "10px",
+        gridColumn: isOpen ? "2 / 2" : "1 / 2",
       }}
     >
       <p>

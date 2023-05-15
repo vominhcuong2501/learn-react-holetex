@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserInformation from "./UserInformation";
+import { AppContext } from "./Context";
 
 export default function Sidebar() {
+  const { isOpen, themeStyle } = useContext(AppContext);
+  if (!isOpen) return null;
   return (
     <div
       className="sidebar"
       style={{
-        backgroundColor: "rgb(228,228,228)",
+        ...themeStyle,
         padding: "10px",
         gridColumn: "1 / 2",
         gridRow: "1 / 3",
       }}
     >
-      <h1>Sidebar</h1>
+      <UserInformation />
     </div>
   );
 }

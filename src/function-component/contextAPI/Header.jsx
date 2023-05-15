@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./Context";
 
-export default function Header({ isOpen, setIsOpen, userData }) {
+export default function Header() {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  const { userData, isOpen, setIsOpen, themeStyle, isDay, toggleTheme } =
+    useContext(AppContext);
+
   return (
     <div
       className="header"
       style={{
-        backgroundColor: "rgb(228,228,228)",
+        ...themeStyle,
         padding: "10px",
-        gridColumn: isOpen ? "2 / 4" : "1 / 4",
+        gridColumn: isOpen ? "2 / 2" : "1 / 2",
         textAlign: "right",
       }}
     >
@@ -20,6 +25,18 @@ export default function Header({ isOpen, setIsOpen, userData }) {
       >
         Hello! {userData.hoTen}
       </p>
+      <label
+        htmlFor=""
+        className="switch"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "right",
+        }}
+      >
+        <input type="checkbox" onChange={toggleTheme} checked={isDay} />
+        <p style={{ margin: 0 }}>Theme</p>
+      </label>
     </div>
   );
 }
