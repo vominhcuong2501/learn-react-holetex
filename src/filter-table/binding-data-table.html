@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Table</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #000;
+    }
+
+    #table-container th {
+      background-color: #dddddd;
+    }
+
+    .select-dropdown {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .select-dropdown__button {
+      width: auto;
+      padding: 10px 35px 10px 15px;
+      background-color: #fff;
+      color: #616161;
+      border: 1px solid #cecece;
+      border-radius: 3px;
+      cursor: pointer;
+      min-width: 210px;
+      text-align: left;
+    }
+
+    .select-dropdown__button:focus {
+      outline: none;
+    }
+
+    .select-dropdown__button:hover {
+      background: unset;
+      color: inherit;
+    }
+
+    .select-dropdown__button i {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+    }
+
+    .select-dropdown__list {
+      position: absolute;
+      display: block;
+      left: 0;
+      right: 0;
+      max-height: 300px;
+      overflow: auto;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: top left;
+      transform: scale(1, 0);
+      transition: all ease-in-out 0.3s;
+      z-index: 2;
+    }
+
+    .select-dropdown__list.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1, 1);
+    }
+
+    .select-dropdown__list-item {
+      display: block;
+      list-style-type: none;
+      padding: 10px 15px;
+      background: #fff;
+      border-top: 1px solid #e6e6e6;
+      font-size: 14px;
+      line-height: 1.4;
+      cursor: pointer;
+      color: #616161;
+      transition: all ease-in-out 0.3s;
+    }
+
+    .select-dropdown__list .select-dropdown__list-item:hover {
+      background: #fbd8e1;
+    }
+
+    .select-layout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      column-gap: 40px;
+    }
+
+    @media screen and (max-width: 767.89px) {
+      .select-layout {
+        column-gap: 8px;
+      }
+
+      #table-container {
+        overflow-y: auto;
+      }
+
+      .select-layout .select-dropdown__button {
+        min-width: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="select-layout">
+      <div class="select-dropdown">
+        <button href="#" role="button" data-value="All" class="select-dropdown__button filter-area">
+          <span>All</span>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <ul class="select-dropdown__list filter-area-list">
+          <li data-value="All" class="select-dropdown__list-item">All</li>
+          <li data-value="Asia Pacific" class="select-dropdown__list-item">
+            Asia Pacific
+          </li>
+          <li data-value="Europe" class="select-dropdown__list-item">
+            Europe
+          </li>
+          <li data-value="Caribbean" class="select-dropdown__list-item">
+            Caribbean
+          </li>
+          <li data-value="Middle East" class="select-dropdown__list-item">
+            Middle East
+          </li>
+          <li data-value="Africa" class="select-dropdown__list-item">
+            Africa
+          </li>
+        </ul>
+      </div>
+      <div class="select-dropdown">
+        <button href="#" role="button" data-value="3-7 days" class="select-dropdown__button filter-time">
+          <span>3-7 days</span>
+          <i class="fa fa-chevron-down" aria-hidden="true" style="transform: rotate(180deg)"></i>
+        </button>
+        <ul class="select-dropdown__list filter-time-list">
+          <li data-value="2-4 days" class="select-dropdown__list-item">
+            2-4 days
+          </li>
+          <li data-value="3-7 days" class="select-dropdown__list-item">
+            3-7 days
+          </li>
+          <li data-value="4-6 days" class="select-dropdown__list-item">
+            4-6 days
+          </li>
+          <li data-value="5-7 days" class="select-dropdown__list-item">
+            5-7 days
+          </li>
+          <li data-value="1-2 weeks" class="select-dropdown__list-item">
+            1-2 weeks
+          </li>
+        </ul>
+      </div>
+      <div class="select-dropdown">
+        <button href="#" role="button" data-value="Singapore" class="select-dropdown__button filter-country">
+          <span>Singapore</span>
+          <i class="fa fa-chevron-down" aria-hidden="true" style="transform: rotate(180deg)"></i>
+        </button>
+        <ul class="select-dropdown__list filter-country-list">
+          <li data-value="Hong Kong, China" class="select-dropdown__list-item">
+            Hong Kong, China
+          </li>
+          <li data-value="Malaysia" class="select-dropdown__list-item">
+            Malaysia
+          </li>
+          <li data-value="Singapore" class="select-dropdown__list-item">
+            Singapore
+          </li>
+          <li data-value="Vanuatu" class="select-dropdown__list-item">
+            Vanuatu
+          </li>
+          <li data-value="Vietnam" class="select-dropdown__list-item">
+            Vietnam
+          </li>
+          <li data-value="Lithuania" class="select-dropdown__list-item">
+            Lithuania
+          </li>
+          <li data-value="Switzerland" class="select-dropdown__list-item">
+            Switzerland
+          </li>
+          <li data-value="Belize" class="select-dropdown__list-item">
+            Belize
+          </li>
+          <li data-value="Puerto Rico (U.S. territory)" class="select-dropdown__list-item">
+            Puerto Rico (U.S. territory)
+          </li>
+          <li data-value="Saint Kitts and Nevis" class="select-dropdown__list-item">
+            Saint Kitts and Nevis
+          </li>
+          <li data-value="Saint Lucia" class="select-dropdown__list-item">
+            Saint Lucia
+          </li>
+          <li data-value="United Arab Emirates (UAE)" class="select-dropdown__list-item">
+            United Arab Emirates (UAE)
+          </li>
+          <li data-value="Mauritius" class="select-dropdown__list-item">
+            Mauritius
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Bank/Financial Institution</th>
+          <th>Initial Deposit/First Funding</th>
+          <th>Average Time</th>
+          <th>Remarks</th>
+          <th>Service Fee</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <script>
+    const dataOrigin = [
+      {
+        area: "Asia Pacific",
+        colspan: 6,
+        content: [
+          {
+            country_name: "Hong Kong, China",
+            bank: "HSBC Bank",
+            deposit: "HKD 10,000",
+            average_time: "2 - 4 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "ICICI Bank",
+            deposit: "HKD 10,001",
+            average_time: "4 - 6 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "Hang Seng Bank",
+            deposit: "HKD 10,000",
+            average_time: "4 - 8 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "Standard Chartered Hong Kong Limited",
+            deposit: "HKD 50,000",
+            average_time: "4 - 6 working days",
+            remarks: "Personal Visit, HK resident OR HK company",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "OCBC Wing Hang HK Bank",
+            deposit: "HKD 50,000",
+            average_time: "4 - 6 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "Bank of China",
+            deposit: "HKD 300,000",
+            average_time: "3 - 7 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Hong Kong, China",
+            bank: "DBS Bank Limited",
+            deposit: "USD 10,000",
+            average_time: "4 - 6 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Malaysia",
+            bank: "Standard Chartered Bank (Malaysia)",
+            deposit: "USD 20,000",
+            average_time: "4 - 6 working days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "HSBC Singapore Ltd",
+            deposit: "SGD 30,000",
+            average_time: "5 - 7 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "DBS Bank Limited",
+            deposit: "USD/SGD 100,000",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "OCBC Bank",
+            deposit: "SGD 30,000",
+            average_time: "2 - 4 days",
+            remarks:
+              "Non-Singapore companies, Personal visit required at nearby branch",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "Standard Chartered Bank Limited",
+            deposit: "SGD 30,000",
+            average_time: "4 - 6 days",
+            remarks: "Personal Visit, SG resident OR SG Company",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "Maybank",
+            deposit: "USD/SGD 1,000",
+            average_time: "Preliminary Review: 3-4 Working Days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Singapore",
+            bank: "United Overseas Bank Limited Co",
+            deposit: "USD/SGD 25,000",
+            average_time: "Preliminary Review: 3-4 Working Days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vanuatu",
+            bank: "Pacific Private Bank",
+            deposit: "USD 1,500",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vietnam",
+            bank: "VietcombankInitial DepositAverage Time2 - 4 daysRemarksPersonal VisitService FeeUS$ 899",
+            deposit: "",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vietnam",
+            bank: "Standard Chartered Bank (Vietnam) Limited",
+            deposit: "",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vietnam",
+            bank: "HSBC Bank (Vietnam) Ltd  ",
+            deposit: "",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vietnam",
+            bank: "CITIBANK Vietnam",
+            deposit: "",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Vietnam",
+            bank: "Vietnam Technological and Commercial Joint- stock Bank - Techcombank",
+            deposit: "",
+            average_time: "2 - 4 days",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+        ],
+      },
+      {
+        area: "Europe",
+        colspan: 6,
+        content: [
+          {
+            country_name: "Lithuania",
+            bank: "DSBC Financial Europe UAB, member of DNBC Financial Group™",
+            deposit: "EUR 3,000",
+            average_time: "3-5 working days",
+            remarks: "3-5 working days",
+            service: "US$ 0 + EUR 100 cashback",
+          },
+          {
+            country_name: "Switzerland",
+            bank: "CIM Banque",
+            deposit: "USD/CHF 10,000",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+        ],
+      },
+      {
+        area: "Caribbean",
+        colspan: 6,
+        content: [
+          {
+            country_name: "Belize",
+            bank: "Belize Bank International",
+            deposit: "USD 1,000",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Puerto Rico (U.S. territory)",
+            bank: "Stern International Bank",
+            deposit:
+              "Account opening fee: US$ 3,000 – US$ 7,500 Deposit is not mandatory",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Saint Kitts and Nevis",
+            bank: "Bank of Nevis International",
+            deposit: "USD 10,000",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+          {
+            country_name: "Saint Lucia",
+            bank: "Bank of Saint Lucia International",
+            deposit: "US$ 5,000",
+            average_time: "5 - 7 days",
+            remarks: "Remote Application",
+            service: "US$ 899",
+          },
+        ],
+      },
+      {
+        area: "Middle East",
+        colspan: 6,
+        content: [
+          {
+            country_name: "United Arab Emirates (UAE)",
+            bank: "Emirates NBD Bank",
+            deposit: "AED 50,000",
+            average_time: "3 - 7 days",
+            remarks:
+              "Personal Visit Emirates NBD Bank only support ICC/FTZ/FZ company in UAE/RAK",
+            service: "US$ 899",
+          },
+          {
+            country_name: "United Arab Emirates (UAE)",
+            bank: "Emirates Islamic Bank",
+            deposit: "AED 10,000",
+            average_time: "1 - 2 weeks",
+            remarks: "Personal Visit",
+            service: "US$ 899",
+          },
+        ],
+      },
+      {
+        area: "Africa",
+        colspan: 6,
+        content: [
+          {
+            country_name: "Mauritius",
+            bank: "MauBank Ltd",
+            deposit: "5,000 (GBP, USD, EUR, CHF, AUD or ZAR: 5,000)",
+            average_time: "3 - 7 days",
+            remarks: "Remote Application",
+            service: "US$ 2,600",
+          },
+          {
+            country_name: "Mauritius",
+            bank: "Bank One",
+            deposit: "USD 5,000",
+            average_time: "1 - 2 weeks",
+            remarks: "Remote Application",
+            service: "US$ 2,600",
+          },
+        ],
+      },
+    ];
+    const dataFilter = JSON.stringify(dataOrigin);
+    const filterOptionSelected = [];
+
+    const tableContent = document.getElementById("table-container");
+    const table = document.createElement("table");
+    let filteredData;
+    /* Render Data Table */
+    // Thêm header row
+    const thead = document.createElement("thead");
+    const headers = [
+      "Country",
+      "Bank/Financial Institution",
+      "Initial Deposit/First Funding",
+      "Average Time",
+      "Remarks",
+      "Service Fee",
+    ];
+    const headerRow = document.createElement("tr");
+    headers.forEach((headerText) => {
+      const th = document.createElement("th");
+      th.textContent = headerText;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    let prevCountryName = "";
+
+    JSON.parse(dataFilter).forEach((region) => {
+      const regionRow = document.createElement("tr");
+      const regionHeader = document.createElement("th");
+      regionHeader.setAttribute("colspan", region.colspan);
+      regionHeader.innerText = region.area;
+      regionRow.appendChild(regionHeader);
+      table.appendChild(regionRow);
+      region.content.forEach((country) => {
+        const countryRow = document.createElement("tr");
+        if (country.country_name !== prevCountryName) {
+          const countryNameCell = document.createElement("td");
+          countryNameCell.setAttribute(
+            "rowspan",
+            region.content.filter(
+              (c) => c.country_name === country.country_name
+            ).length
+          );
+          countryNameCell.innerText = country.country_name;
+          countryRow.appendChild(countryNameCell);
+          prevCountryName = country.country_name;
+        }
+        const bankCell = document.createElement("td");
+        bankCell.innerText = country.bank;
+        countryRow.appendChild(bankCell);
+        const depositCell = document.createElement("td");
+        depositCell.innerText = country.deposit;
+        countryRow.appendChild(depositCell);
+        const timeCell = document.createElement("td");
+        timeCell.innerText = country.average_time;
+        countryRow.appendChild(timeCell);
+        const remarksCell = document.createElement("td");
+        remarksCell.innerText = country.remarks;
+        countryRow.appendChild(remarksCell);
+        const serviceCell = document.createElement("td");
+        serviceCell.innerText = country.service;
+        countryRow.appendChild(serviceCell);
+        table.appendChild(countryRow);
+      });
+    });
+    tableContent.appendChild(table);
+    /* End Render Data Table */
+
+    /* Handle Filter */
+    const filterOptions = [
+      {
+        area: "All",
+      },
+      {
+        area: "Asia Pacific",
+      },
+      {
+        area: "Europe",
+      },
+      {
+        area: "Caribbean",
+      },
+      {
+        area: "Middle East",
+      },
+      {
+        area: "Africa",
+      },
+    ];
+    const filterTimeOption = [
+      {
+        select: "2-4 days",
+      },
+      {
+        select: "3-7 days",
+      },
+      {
+        select: "4-6 days",
+      },
+      {
+        select: "5-7 days",
+      },
+      {
+        select: "1-2 weeks",
+      },
+    ];
+    const filterCountriesOption = [
+      {
+        select: "Hong Kong, China",
+      },
+      {
+        select: "Malaysia",
+      },
+      {
+        select: "Singapore",
+      },
+      {
+        select: "Vanuatu",
+      },
+      {
+        select: "Vietnam",
+      },
+      {
+        select: "Lithuania",
+      },
+      {
+        select: "Switzerland",
+      },
+      {
+        select: "Belize",
+      },
+      {
+        select: "Puerto Rico (U.S. territory)",
+      },
+      {
+        select: "Saint Kitts and Nevis",
+      },
+      {
+        select: "Saint Lucia",
+      },
+      {
+        select: "United Arab Emirates (UAE)",
+      },
+      {
+        select: "Mauritius",
+      },
+    ];
+    const dropdownButton = document.querySelector(".filter-area");
+    const dropdownButtonTime = document.querySelector(".filter-time");
+    const dropdownButtonCountry = document.querySelector(".filter-country");
+    const dropdownList = document.querySelector(".filter-area-list");
+    const dropdownTimeList = document.querySelector(".filter-time-list");
+    const dropdownCountriesList = document.querySelector(
+      ".filter-country-list"
+    );
+
+    /* Add a click event listener to the list items to update the selected option Area */
+    filterOptions.forEach((option) => {
+      const li = document.createElement("li");
+      li.setAttribute("data-value", option.area);
+      li.classList.add("select-dropdown__list-item");
+      li.innerText = option.area;
+      dropdownList.appendChild(li);
+    });
+    dropdownList.addEventListener("click", (event) => {
+      const selectedOption = event.target.getAttribute("data-value");
+      filterOptionSelected[0] = selectedOption;
+
+      const selectedText = event.target.innerText;
+      dropdownButton.setAttribute("data-value", selectedOption);
+      dropdownButton.getElementsByTagName("span")[0].innerText = selectedText;
+
+      // Filter the data based on the selected option
+      filteredData =
+        selectedOption === "All"
+          ? dataOrigin
+          : dataOrigin.filter((item) => item.area === selectedOption);
+
+      // Update the table with the filtered data
+      updateTable(table, filteredData);
+      dropdownList.classList.remove("active");
+
+      if (filterOptionSelected[1] || filterOptionSelected[2]) {
+        const result = filterData(filteredData, filterOptionSelected);
+        updateTableTimeAndCountries(table, result);
+      }
+    });
+
+    dropdownButton.addEventListener("click", function () {
+      dropdownList.classList.toggle("active");
+      const chevronIcon = dropdownButton.querySelector(".fa-chevron-down");
+      if (!dropdownList.classList.contains("active")) {
+        chevronIcon.style.transform = "rotate(0deg)";
+      }
+      chevronIcon.style.transform = "rotate(180deg)";
+    });
+    /* End Add a click event listener to the list items to update the selected option Area */
+
+    /* Add a click event listener to the list items to update the selected option Time */
+    filterTimeOption.forEach((option) => {
+      const li = document.createElement("li");
+      li.setAttribute("data-value", option.select);
+      li.classList.add("select-dropdown__list-item");
+      li.innerText = option.select;
+      dropdownTimeList.appendChild(li);
+    });
+
+    dropdownTimeList.addEventListener("click", (event) => {
+      const selectedOption = event.target.getAttribute("data-value");
+      filterOptionSelected[1] = selectedOption;
+      const selectedText = event.target.innerText;
+      dropdownButtonTime.setAttribute("data-value", selectedOption);
+      dropdownButtonTime.getElementsByTagName("span")[0].innerText =
+        selectedText;
+
+      // Filter the data based on the selected option
+      const result = filterData(
+        filteredData ? filteredData : dataOrigin,
+        filterOptionSelected
+      );
+
+      updateTableTimeAndCountries(table, result);
+      dropdownTimeList.classList.remove("active");
+    });
+
+    dropdownButtonTime.addEventListener("click", function () {
+      dropdownTimeList.classList.toggle("active");
+      const chevronIcon =
+        dropdownButtonTime.querySelector(".fa-chevron-down");
+      if (!dropdownTimeList.classList.contains("active")) {
+        chevronIcon.style.transform = "rotate(0deg)";
+      }
+      chevronIcon.style.transform = "rotate(180deg)";
+    });
+    /* End Add a click event listener to the list items to update the selected option Time */
+
+    /* Add a click event listener to the list items to update the selected option Countries */
+    filterCountriesOption.forEach((option) => {
+      const li = document.createElement("li");
+      li.setAttribute("data-value", option.select);
+      li.classList.add("select-dropdown__list-item");
+      li.innerText = option.select;
+      dropdownCountriesList.appendChild(li);
+    });
+
+    dropdownCountriesList.addEventListener("click", (event) => {
+      const selectedOption = event.target.getAttribute("data-value");
+      filterOptionSelected[2] = selectedOption;
+      const selectedText = event.target.innerText;
+      dropdownButtonCountry.setAttribute("data-value", selectedOption);
+      dropdownButtonCountry.getElementsByTagName("span")[0].innerText =
+        selectedText;
+
+      // Filter the data based on the selected option
+      const result = filterData(
+        filteredData ? filteredData : dataOrigin,
+        filterOptionSelected
+      );
+
+      updateTableTimeAndCountries(table, result);
+      dropdownCountriesList.classList.remove("active");
+    });
+
+    dropdownButtonCountry.addEventListener("click", function () {
+      dropdownCountriesList.classList.toggle("active");
+      const chevronIcon =
+        dropdownButtonCountry.querySelector(".fa-chevron-down");
+      if (!dropdownCountriesList.classList.contains("active")) {
+        chevronIcon.style.transform = "rotate(0deg)";
+      }
+      chevronIcon.style.transform = "rotate(180deg)";
+    });
+    /* End Add a click event listener to the list items to update the selected option Countries */
+
+    // Function to update the table with new data
+    function updateTable(table, data) {
+      // Remove existing rows from table (except header row)
+      clearTable(table);
+
+      let prevCountryName = "";
+      data.forEach((region) => {
+        const regionRow = document.createElement("tr");
+        const regionHeader = document.createElement("th");
+        regionHeader.setAttribute("colspan", region.colspan);
+        regionHeader.innerText = region.area;
+        regionRow.appendChild(regionHeader);
+        table.appendChild(regionRow);
+        region.content.forEach((country) => {
+          const countryRow = document.createElement("tr");
+          if (country.country_name !== prevCountryName) {
+            const countryNameCell = document.createElement("td");
+            countryNameCell.setAttribute(
+              "rowspan",
+              region.content.filter(
+                (c) => c.country_name === country.country_name
+              ).length
+            );
+            countryNameCell.innerText = country.country_name;
+            countryRow.appendChild(countryNameCell);
+            prevCountryName = country.country_name;
+          }
+          const bankCell = document.createElement("td");
+          bankCell.innerText = country.bank;
+          countryRow.appendChild(bankCell);
+          const depositCell = document.createElement("td");
+          depositCell.innerText = country.deposit;
+          countryRow.appendChild(depositCell);
+          const timeCell = document.createElement("td");
+          timeCell.innerText = country.average_time;
+          countryRow.appendChild(timeCell);
+          const remarksCell = document.createElement("td");
+          remarksCell.innerText = country.remarks;
+          countryRow.appendChild(remarksCell);
+          const serviceCell = document.createElement("td");
+          serviceCell.innerText = country.service;
+          countryRow.appendChild(serviceCell);
+          table.appendChild(countryRow);
+        });
+      });
+      const dataTable = document.querySelectorAll(
+        "table tr:not(:first-child)"
+      );
+      const formattedData = [];
+      dataTable.forEach((row) => {
+        const areaCell = row.querySelector("th:first-of-type");
+        if (areaCell) {
+          formattedData.push({
+            area: areaCell.textContent.trim(),
+            colspan: 6,
+            content: [],
+          });
+        }
+
+        const contentCell = row.querySelectorAll("td");
+        let temp;
+        contentCell.forEach((row) => {
+          if (row.getAttribute("rowspan")) {
+            temp = row;
+            let rowSpanValue = row.getAttributeNode("rowspan").value;
+            const countryRow = document.createElement("td");
+          }
+          // console.log('row',row);
+        });
+        // if (temp) {
+        //     console.log('temp',temp);
+        // }
+        // formattedData.content.push({
+        //     country_name: ,
+        //     bank: ,
+        //     deposit: ,
+        //     average_time: ,
+        //     remarks: ,
+        //     service:
+        // })
+      });
+    }
+    function updateTableTimeAndCountries(table, data) {
+      // Remove existing rows from table (except header row)
+      clearTable(table);
+
+      let prevCountryName = "";
+      data.forEach((item) => {
+        const countryRow = document.createElement("tr");
+        if (item.country_name !== prevCountryName) {
+          const countryNameCell = document.createElement("td");
+          countryNameCell.setAttribute(
+            "rowspan",
+            data.filter((i) => i.country_name == item.country_name).length
+          );
+          countryNameCell.innerText = item.country_name;
+          countryRow.appendChild(countryNameCell);
+          prevCountryName = item.country_name;
+        }
+        const bankCell = document.createElement("td");
+        bankCell.innerText = item.bank;
+        countryRow.appendChild(bankCell);
+        const depositCell = document.createElement("td");
+        depositCell.innerText = item.deposit;
+        countryRow.appendChild(depositCell);
+        const timeCell = document.createElement("td");
+        timeCell.innerText = item.average_time;
+        countryRow.appendChild(timeCell);
+        const remarksCell = document.createElement("td");
+        remarksCell.innerText = item.remarks;
+        countryRow.appendChild(remarksCell);
+        const serviceCell = document.createElement("td");
+        serviceCell.innerText = item.service;
+        countryRow.appendChild(serviceCell);
+        table.appendChild(countryRow);
+      });
+    }
+
+    function clearTable(table) {
+      while (table.rows.length > 1) {
+        table.deleteRow(1);
+      }
+    }
+    /* End Handle Filter */
+
+    // helper function
+    function whiteSpaceReplace(str) {
+      return str.slice().replace(/\s/g, "").substring(0, 3);
+    }
+
+    let newData = [];
+    function filterData(data, filterOptions) {
+      const area = filterOptions[0];
+      const workingTime = filterOptions[1];
+      const country = filterOptions[2];
+
+      if (newData.length > 0) {
+        newData = newData.filter((item) => {
+          if (workingTime && country)
+            return (
+              whiteSpaceReplace(item.average_time).includes(
+                whiteSpaceReplace(workingTime)
+              ) && item.country_name.includes(country)
+            );
+          if (workingTime)
+            return whiteSpaceReplace(item.average_time).includes(
+              whiteSpaceReplace(workingTime)
+            );
+          if (country) return item.country_name.includes(country);
+        });
+
+        if (area) {
+          let ar = [];
+          data.forEach((item) => {
+            item.content.forEach((element) => {
+              newData.forEach((newDataItem) => {
+                if (
+                  element.country_name === newDataItem.country_name &&
+                  element.average_time === newDataItem.average_time
+                )
+                  ar.push(element);
+              });
+            });
+          });
+          newData = ar;
+        }
+        return newData;
+      }
+
+      if (workingTime && country) {
+        const ar = [];
+        data.forEach((item) => {
+          const getAverageTime = item.content.filter((itemCountry) =>
+            whiteSpaceReplace(itemCountry.average_time).includes(
+              whiteSpaceReplace(workingTime)
+            )
+          );
+          const getCountryName = item.content.filter((itemCountry) =>
+            itemCountry.country_name.includes(country)
+          );
+          ar.push(...getAverageTime);
+          ar.push(...getCountryName);
+        });
+        newData = ar.filter(
+          (item) =>
+            whiteSpaceReplace(item.average_time).includes(
+              whiteSpaceReplace(workingTime)
+            ) && item.country_name.includes(country)
+        );
+        return newData;
+      }
+
+      const string = "dsfds sdf3 7 days";
+      const numbers = string.match(/\d+/g);
+      const firstNumber = numbers[0];
+      const secondNumber = numbers[1];
+      console.log("numbers", numbers);
+
+      console.log(workingTime);
+
+      if (workingTime)
+        newData = data
+          .map((item) =>
+            item.content.filter((itemCountry) =>
+              whiteSpaceReplace(itemCountry.average_time).includes(
+                whiteSpaceReplace(workingTime)
+              )
+            )
+          )
+          .filter((item) => item.length > 0)
+          .flat();
+      if (country)
+        newData = data
+          .map((item) =>
+            item.content.filter((itemCountry) =>
+              itemCountry.country_name.includes(country)
+            )
+          )
+          .filter((item) => item.length > 0)
+          .flat();
+      return newData;
+    }
+  </script>
+</body>
+
+</html>
