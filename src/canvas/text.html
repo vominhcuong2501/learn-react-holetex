@@ -16,23 +16,98 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <style>
+      #myCanvas2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
   </head>
   <body>
-    <!-- TEXT  -->
-    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <!-- TEXT nét đặc fillText()  -->
+    <canvas
+      id="myCanvas1"
+      width="300"
+      height="100"
+      style="border: 1px solid blue"
+    ></canvas>
     <script>
-      // Lấy thẻ HTML Canvas
-      var canvas = document.getElementById("myCanvas");
+      var c = document.getElementById("myCanvas1");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "blue";
+      ctx.fillText("Trần Quang Dịnh", 50, 60);
+    </script>
 
-      // Vẽ ở mô hình 2D
-      var context = canvas.getContext("2d");
+    <!-- TEXT nét rỗng strokeText()  -->
+    <canvas
+      id="myCanvas2"
+      width="300"
+      height="100"
+      style="border: 1px solid red"
+    ></canvas>
+    <script>
+      var c = document.getElementById("myCanvas2");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.strokeStyle = "red";
+      ctx.shadowColor = "rgba(0, 255, 0, 0.9)"; // Màu đen với độ trong suốt 0.5
+      ctx.shadowBlur = 3; // Độ mờ của đổ bóng
+      ctx.strokeText("Võ Minh Cường", 50, 60);
+    </script>
 
-      // Thiết lập font chữ và màu
-      context.font = "40pt Calibri";
-      context.fillStyle = "blue";
+    <!-- Sử dụng createLinearGradient để vẽ gradient dạng thẳng  -->
+    <canvas
+      id="myCanvas3"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      var i = 0;
+      function draw4() {
+        var c = document.getElementById("myCanvas3");
+        var ctx = c.getContext("2d");
+        // Tạo gradientvar
+        grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        // Vẽ hình
+        if (i < 150) i++;
+        else return;
+        ctx.fillStyle = grd;
+        ctx.fillRect(25, 13, i, i / 2);
+        setTimeout("draw4();", 10);
+      }
+      draw4();
+    </script>
 
-      // vẽ một đoạn text tại vị trí 150px 100px
-      context.fillText("Hello World!", 150, 100);
+    <!-- Sử dụng createLinearGradient để vẽ gradient dạng tròn/elip  -->
+    <canvas
+      id="myCanvas4"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      var i = 0;
+      function draw5() {
+        var c = document.getElementById("myCanvas4");
+        var ctx = c.getContext("2d");
+        // Tạo gradient
+        var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        // Vẽ hình
+        if (i < 150) i++;
+        else return;
+        ctx.fillStyle = grd;
+        ctx.fillRect(25, 13, i, i / 2);
+        setTimeout("draw5();", 30);
+      }
+      draw5();
     </script>
   </body>
 </html>
