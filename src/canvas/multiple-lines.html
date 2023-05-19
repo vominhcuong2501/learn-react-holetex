@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nối Nhiều Đường</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- 1. Nối nhiều đường  -->
+    <canvas id="myCanvas4" width="520" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas4");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.moveTo(100, 20);
+
+      // line 1
+      context.lineTo(200, 160);
+
+      // quadratic curve
+      context.quadraticCurveTo(230, 200, 250, 120);
+
+      // bezier curve
+      context.bezierCurveTo(290, -40, 300, 200, 400, 150);
+
+      // line 2
+      context.lineTo(500, 90);
+
+      context.lineWidth = 5;
+      context.strokeStyle = "blue";
+      context.stroke();
+    </script>
+
+    <!-- 2. Thuộc tính line join trong Canvas -->
+    <!-- Trong Canvas có thuộc tính lineJoin giúp chúng ta chọn lựa cách nối giữa hai đường thẳng (giao điểm). Nó có ba cách nối như sau: -->
+    <canvas id="myCanvas5" width="1000" height="400"></canvas>
+    <script>
+      // miter: bo thành góc nhọn
+      // round: bo tròn góc nối
+      // bevel: bo thành góc nhọn nhưng bị mất phần trên đỉnh
+      var canvas = document.getElementById("myCanvas5");
+      var context = canvas.getContext("2d");
+
+      // set line width for all lines
+      context.lineWidth = 25;
+      context.strokeStyle = "blue";
+
+      // miter line join (left)
+      context.beginPath();
+      context.moveTo(99, 150);
+      context.lineTo(149, 50);
+      context.lineTo(199, 150);
+      context.lineJoin = "miter";
+      context.stroke();
+
+      // round line join (middle)
+      context.beginPath();
+      context.moveTo(239, 150);
+      context.lineTo(289, 50);
+      context.lineTo(339, 150);
+      context.lineJoin = "round";
+      context.stroke();
+
+      // bevel line join (right)
+      context.beginPath();
+      context.moveTo(379, 150);
+      context.lineTo(429, 50);
+      context.lineTo(479, 150);
+      context.lineJoin = "bevel";
+      context.stroke();
+    </script>
+
+    <!-- 3. Hàm arcTo() trong Canvas -->
+    <!-- Hàm arcTo() dùng để tạo một vòng cung trong Canvas với điểm bắt đầu là một điểm cho trước, nghĩa là nó dùng để nối tiếp một đường nào đó (đương nhiên đường đó đã có điểm kết thúc và điểm đó cũng chính là điểm start của arcTo()). -->
+    <!-- Cú pháp: context.arcTo(x1, y1, x2, y2, r); -->
+    <!-- x1: vị trí x của điểm điều khiển -->
+    <!-- y1 : vị trí y của điểm điểu khiển -->
+    <!-- x2: vị trí x của điểm kết thúc -->
+    <!-- y2: vị trí y của điểm kết thúc -->
+    <!-- r : bán kính của vòng cung (radius). -->
+    <canvas id="myCanvas" width="1000" height="400"></canvas>
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+
+      // Vẽ 1 đường thẳng
+      ctx.moveTo(20, 20);
+      ctx.lineTo(100, 20);
+
+      // Nôi tiếp là một đường cung
+      ctx.arcTo(150, 20, 150, 70, 50);
+
+      // Tiếp theo là một đường thẳng
+      ctx.lineTo(150, 120);
+      ctx.stroke();
+    </script>
+  </body>
+</html>

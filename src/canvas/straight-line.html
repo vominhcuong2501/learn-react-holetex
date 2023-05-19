@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Đường Thẳng</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ĐƯỜNG THẲNG  -->
+    <canvas id="myCanvas1" width="400" height="200"></canvas>
+    <script>
+      // Lấy đối tượng Canvas
+      var canvas = document.getElementById("myCanvas1");
+
+      // Chọn đối tượng vẽ 2D
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(490, 190); // Điểm kết thúc
+      context.stroke(); // Tiến hành vẽ
+    </script>
+    <br />
+
+    <!-- Chiều rộng và màu của đường thẳng: -->
+    <canvas id="myCanvas2" width="400" height="200"></canvas>
+    <script>
+      // Lấy đối tượng Canvas
+      var canvas = document.getElementById("myCanvas2");
+
+      // Chọn đối tượng vẽ 2D
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(380, 180); // Điểm kết thúc
+      context.lineWidth = 15; // rộng 15px
+      context.strokeStyle = "blue"; // Màu xanh
+      context.stroke(); // Tiến hành vẽ
+    </script>
+    <br />
+
+    <!-- Định dạng hai đầu đường thẳng: -->
+    <canvas id="myCanvas3" width="400" height="50"></canvas>
+    <br />
+    <canvas id="myCanvas4" width="400" height="50"></canvas>
+    <br />
+    <canvas id="myCanvas5" width="400" height="50"></canvas>
+    <br />
+    <script>
+      // Lấy đối tượng Canvas
+      var canvas = document.getElementById("myCanvas3");
+
+      // Chọn đối tượng vẽ 2D
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(190, 10); // Điểm kết thúc
+      context.lineWidth = 15; // rộng 15px
+      context.strokeStyle = "blue"; // Màu xanh
+      context.lineCap = "butt"; //  vuông góc tại điểm, có chiều bình thường
+      context.stroke(); // Tiến hành vẽ
+
+      /*CANVAS THỨ HAI*/
+      var canvas = document.getElementById("myCanvas4");
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(190, 10); // Điểm kết thúc
+      context.lineWidth = 15; // rộng 15px
+      context.strokeStyle = "pink"; // Màu hồng
+      context.lineCap = "round"; // bo tròn, dài hơn bình thường do hai đầu bổ sung một đoạn bo tròn.
+      context.stroke(); // Tiến hành vẽ
+
+      /*CANVAS THỨ BA*/
+      var canvas = document.getElementById("myCanvas5");
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(190, 10); // Điểm kết thúc
+      context.lineWidth = 15; // rộng 15px
+      context.strokeStyle = "red"; // Màu đỏ
+      context.lineCap = "square"; // bo hình chữ nhật, dài hơn bình thường do hai đầu bổ sung đoạn hình chữ nhật.
+      context.stroke(); // Tiến hành vẽ
+    </script>
+
+    <!-- Vẽ đường thẳng nối liên tiếp trong Canvas -->
+    <canvas id="myCanvas6" width="400" height="250"></canvas>
+    <script>
+      // Lấy đối tượng Canvas
+      var canvas = document.getElementById("myCanvas6");
+
+      // Chọn đối tượng vẽ 2D
+      var context = canvas.getContext("2d");
+
+      // Tiến hành vẽ
+      context.beginPath(); // Khai báo vẽ đường thẳng mới
+      context.moveTo(10, 10); // Điểm bắt đầu
+      context.lineTo(390, 10); // Điểm giữa
+      context.lineTo(20, 190); // Điểm giữa
+      context.lineTo(390, 190); // Điểm kết thúc
+      context.lineWidth = 15; // rộng 15px
+      context.strokeStyle = "blue"; // Màu xanh
+      context.lineCap = "butt";
+      context.stroke(); // Tiến hành vẽ
+    </script>
+  </body>
+</html>

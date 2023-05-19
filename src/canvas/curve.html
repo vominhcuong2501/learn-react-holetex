@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Đường Cong</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- 1. Vẽ hình cung trong Canvas Để  -->
+    <!-- vẽ hình cung thì chúng ta sử dụng hàm arc(x, y, radius, startAngle,
+    endAngle, counterClockwise), -->
+    <!-- trong đó: x và y là tâm của hình cung -->
+    <!-- radius là bán kính  -->
+    <!-- startAngle là góc bắt đầu  -->
+    <!-- endAngle là góc kết thúc  -->
+    <!-- counterClockwise là hướng vẽ (cùng chiều hoặc ngược chiều kim đồng hồ) -->
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      // Xác đinh tâm là trọng tâm của Canvas
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+
+      // bán kính 75px
+      var radius = 100;
+
+      // Góc bắt đầu là 1.1PI
+      var startAngle = 1.1 * Math.PI;
+      console.log(Math.PI);
+      // Góc kết thúc là 1.9PI
+      var endAngle = 1.9 * Math.PI;
+
+      // Cùng chiều kim đồng hồ
+      var counterClockwise = false;
+
+      // Vẽ đường cung
+      context.beginPath();
+      context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+      context.lineWidth = 15;
+
+      // line color
+      context.strokeStyle = "black";
+      context.stroke();
+    </script>
+
+    <!-- Cách để xác định chỗ cong của đường cong là chọn các diểm trung tâm đoạn thẳng của các điểm tọa độ nối lại với nhau -->
+    <canvas id="myCanvas1" width="400" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas1");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.moveTo(20, 20); // Điểm bắt đầu vẽ
+      context.quadraticCurveTo(20, 100, 200, 20); //vẽ qua các điểm
+      context.lineWidth = 1;
+      context.strokeStyle = "black";
+      context.stroke();
+      // Điểm bắt đầu là (20, 20) trong hàm context.moveTo(20, 20).
+      // Điểm điều khiển là (20, 100) trong hàm context.quadraticCurveTo(20, 100, 200, 20).
+      // Điểm kết thúc là (200, 20) trong hàm context.quadraticCurveTo(20, 100, 200, 20).
+    </script>
+
+    <!-- 2. Vẽ đường cong bậc hai trong Canvas -->
+    <canvas id="myCanvas2" width="400" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas2");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.moveTo(188, 150);
+      context.quadraticCurveTo(288, 0, 388, 150);
+      context.lineWidth = 10;
+      context.strokeStyle = "black";
+      context.stroke();
+      // Điểm bắt đầu là (188, 150) trong hàm context.moveTo (188, 150).
+      // Điểm điều khiển là (288,0) trong hàm context.quadraticCurveTo(288, 0, 388, 150).
+      // Điểm kết thúc là (388,150) trong hàm context.quadraticCurveTo(288, 0, 388, 150).
+    </script>
+
+    <!-- 3. Vẽ đường cong Benzier trong Canvas -->
+    <canvas id="myCanvas3" width="400" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas3");
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.moveTo(188, 130);
+      context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+      context.lineWidth = 10;
+      context.strokeStyle = "black";
+      context.stroke();
+      // Điểm bắt đầu là (188, 130) trong hàm context.moveTo(20, 20).
+      // Điểm điều khiển là (140, 10) trong hàm context.quadraticCurveTo(140, 10, 388, 10, 388, 170).
+      // Điểm điều khiển là (388, 10) trong hàm context.quadraticCurveTo(140, 10, 388, 10, 388, 170).
+      // Điểm kết thúc là (388,170) trong hàm context.quadraticCurveTo(140, 10, 388, 10, 388, 170).
+    </script>
+  </body>
+</html>

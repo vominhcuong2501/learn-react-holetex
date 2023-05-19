@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas Text</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- TEXT  -->
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      // Lấy thẻ HTML Canvas
+      var canvas = document.getElementById("myCanvas");
+
+      // Vẽ ở mô hình 2D
+      var context = canvas.getContext("2d");
+
+      // Thiết lập font chữ và màu
+      context.font = "40pt Calibri";
+      context.fillStyle = "blue";
+
+      // vẽ một đoạn text tại vị trí 150px 100px
+      context.fillText("Hello World!", 150, 100);
+    </script>
+  </body>
+</html>
