@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 
+// ví dụ về side effects:
+// thực hiện gọi api
+// thêm / xóa các event listeners(click, scroll)
+// thao tác DOM trực tiếp
+// gọi webs APIs (setTimeout, setInterval)
+
 export default function UseEffect() {
   const [count, setCount] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    // componentDidMount & componentDidUpdate
     document.title = `You clicked ${count} times`;
     console.log("useEffect");
     return () => {
-      // clean - up - function
+      // console.log này sẽ chạy trước để clear dữ liệu trc đó rồi mới chạy console.log trên
       console.log("useEffect - count - cleanup");
     };
   }, [count]);

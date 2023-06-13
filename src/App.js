@@ -1,20 +1,20 @@
-// import CreateRef from "./class-component/CreateRef";
-// import Form from "./class-component/Form";
-// import LiftingStateUp from "./class-component/Lifting-state-up";
-// import RenderCondition from "./class-component/Render-condition";
-// import CustomeHook from "./hooks/CustomeHook";
-// import Memo from "./function-component/Memo";
-// import UseCallback from "./function-component/UseCallback";
-// import UseEffect from "./function-component/UseEffect";
-// import UseMemo from "./function-component/UseMemo";
-// import UseRef from "./function-component/UseRef";
-// import UseState from "./function-component/UseState";
-// import UseReducer from "./function-component/useReducer";
-// import UseId from "./function-component/version18/useId/UseId";
-// import UseTransition from "./function-component/version18/useTransition/UseTransition";
+import CreateRef from "./class-component/CreateRef";
+import Form from "./class-component/Form";
+import LiftingStateUp from "./class-component/Lifting-state-up";
+import RenderCondition from "./class-component/Render-condition";
+import CustomeHook from "./hooks/CustomeHook";
+
+import UseId from "./function-component/version18/useId/UseId";
+import UseTransition from "./function-component/version18/useTransition/UseTransition";
 import UseContext from "./function-component/contextAPI/UseContext";
-// import Parent from "./maybe-you-do-not-know/useImperativeHandle/Parent";
+import Parent from "./maybe-you-do-not-know/useImperativeHandle/Parent";
 import app from "./App.css";
+import Memo from "./function-component/react-memo/Memo";
+import UseEffect from "./function-component/useEffect/UseEffect";
+import UseMemo from "./function-component/useMemo/UseMemo";
+import UseCallback from "./function-component/useCallback/UseCallback";
+import UseRef from "./function-component/useRef/UseRef";
+import UseReducer from "./function-component/useReducer/useReducer";
 function App() {
   return (
     <div className="App">
@@ -29,11 +29,11 @@ function App() {
       {/* <Memo /> */}
       {/* <UseRef /> */}
       {/* <UseReducer /> */}
-      {/* <CustomeHook /> */}
+      <CustomeHook />
       {/* <UseId /> */}
       {/* <UseTransition /> */}
       {/* <Parent /> */}
-      <UseContext />
+      {/* <UseContext /> */}
     </div>
   );
 }

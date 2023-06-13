@@ -57,7 +57,6 @@ export default function UseReducer() {
   const [count, dispatch] = useReducer(reducer, 0);
   const [count2, dispatch2] = useReducer(reducer2, 0);
   const [user, userDispatch] = useReducer(userReducer, initState);
-  console.log(user);
   const getUsers = () => {
     userDispatch({
       type: "GET_USER_REQUEST",

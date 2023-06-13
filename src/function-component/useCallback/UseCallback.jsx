@@ -5,6 +5,7 @@ export default function UseCallback() {
 
   const handleClick = useCallback(() => {
     setCount(count + 1);
+    console.log("repeat");
   }, [count]);
 
   return (
