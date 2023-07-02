@@ -1,4 +1,4 @@
-CÁCH CÀI ĐẶT DỰ ÁN REACT MỚI NĂM 2023
+# CÀI ĐẶT DỰ ÁN REACT MỚI NĂM 2023
 
 - Không dùng npm create-react-app nũa nó lâu và tốn nhiều thời gian
 
@@ -10,5 +10,3 @@ CÁCH CÀI ĐẶT DỰ ÁN REACT MỚI NĂM 2023
   => pnpm: pnpm create vite
 
 - Link docs: https://react.dev/learn/start-a-new-react-project
-
-
