@@ -2,17 +2,8 @@ import React, { useCallback, useMemo, useState } from "react";
 import ChildMemo from "./ChildMemo";
 
 // CÁCH 2: nếu count thay đổi thì tách count ra riêng thành 1 component riêng khi setState thì sẽ khong làm Memo re-render lại
-// function CountNumber() {
-//   const [count, setCount] = useState(1);
-//   return (
-//     <>
-//       <p>Count: {count}</p>
-//       <button onClick={() => setCount(count + 1)}>Add</button>
-//     </>
-//   );
-// }
 
-// CACH 3:
+// CACH 3: dùng như useContext
 // function NewComponent({ children }) {
 //   const [count, setCount] = useState(1);
 //   return (
@@ -34,10 +25,11 @@ export default function Memo() {
 
   // dùng useCallback do khi render hàm sẽ tạo lại và tạo luôn bộ nhớ mới nên prop truyền vô cũng dổi => render component con
   const getUsers = useCallback(() => {
+    console.log(12313);
     return fetch(
       "https://628b9961667aea3a3e32d1c5.mockapi.io/api/productPhone"
     );
-  });
+  }, []);
 
   return (
     <>

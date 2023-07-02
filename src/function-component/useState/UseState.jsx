@@ -9,6 +9,7 @@ export default function UseState() {
   //     console.log(total);
   //     return total;
   //   };
+  // khi cho state = một biến của 1 function nào đó trả về để tránh hàm đó render lại ta dặt nó vào callback
   //   const [count, setCount] = useState(() => {
   //     return initialValue();
   //   });
@@ -22,7 +23,7 @@ export default function UseState() {
     // khi setCount liền như vậy thì biến count không cập nhật kịp dữ liệu
     // setCount(count + 1);
     // setCount(count + 1);
-    // khi thêm callback vào hãm sẽ chạy xong và cập nhật count mới chạy cái setCount kế tiếp
+    // khi thêm callback vào hàm sẽ chạy xong và cập nhật count mới chạy cái setCount kế tiếp
     // setCount((prevCount) => {
     //   return prevCount + 1;
     // });
